@@ -1,24 +1,6 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![What the home page looks like](index.png)
 
-Things you may want to cover:
+A simple habit tracker that allows users to add habits and their goal number of days in a row. Users are limited to logging that activity once a day. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Referenced [this rails guide](http://guides.rubyonrails.org/getting_started.html) to create my first rails app! 
