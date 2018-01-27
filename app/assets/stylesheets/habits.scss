@@ -2,23 +2,73 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$emphasis-color: #387D7A;
+
 body {
     background: #fafafa;
-    color: #3d3d3d;
-    text-align: center;
+    color: #5d5d5d;
     position: relative;
+    font-family: 'Roboto', sans-serif;
 }
 
-div {
+a {
+    text-decoration: none;
+    color: $emphasis-color;
+}
+
+#outer {
     padding: 20px;
-    background: white;
-    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    width: 250px;
+    left: 50%;
+    top: 20vh;
+    transform: translateX(-50%);
+    border-top: 5px solid $emphasis-color;
 }
 
-table {
-    margin: 20px 0;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.habit {
+    padding: 10px 0;
+    margin-left: 15px;
+}
+
+li {
+    display: inline-block;
+    margin-right: 5px;
+    transition: 0.2s all;
+}
+
+ul a {
+    color: #5d5d5d;
+}
+
+ul a:hover {
+    color: $emphasis-color;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.habit_name {
+    margin-bottom: 2px;
+    a {
+        font-size: 1.2em;
+    }
+}
+
+#title {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#new_habit, .info, .days_left {
+    font-size: 0.9em;
+}
+
+#new_habit {
+    margin-bottom: 5px;
 }
 

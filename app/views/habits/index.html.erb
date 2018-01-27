@@ -1,24 +1,22 @@
-<div>
-Your Habits
+<div id="outer">
+    <span id="title">Your Habits</span>
 <br> 
-<%= link_to 'New Habit', new_habit_path %>
-<table>
-  <tr>
-    <th>Habits</th>
-    <th>Days Left</th>
-  </tr>
+<span id="new_habit"><%= link_to '+ Add Habit', new_habit_path %></span>
  
-  <% @habits.each do |habit| %>
-    <tr>
-      <td><%= link_to habit.title, habit_path(habit) %></td>
-      <td><%= habit.days != 0 ? habit.days.to_s + ' days left!' : 'Completed! Good job!' %></td>
-      <td><%= link_to "I did it!", habit_path(habit), :method=> :put%></td>
-      <td><%= link_to 'Destroy', habit_path(habit), 
+<% @habits.each do |habit| %>
+    <div class="habit">
+      <div class="habit_name"><%= link_to habit.title, habit_path(habit) %>
+      <span class="days_left"><%= habit.days != 0 ? 'You have ' + habit.days.to_s + 
+                                             (habit.days != 1 ? ' days left' : ' day left') : 'completed' %></span>
+      </div>
+      <ul class="info">
+        <li><%= link_to "I did it!", habit_path(habit), :method=> :put%></li>
+        <li><%= link_to 'Destroy', habit_path(habit), 
                 method: :delete,
-                data: { confirm: (habit.days > 0 ? 
-                                  'Are you sure? You have ' + habit.days.to_s + ' days left for this habit!' 
-                                : 'Are you sure you want to delete this accomplishment?')} %></td> 
-    </tr>
-  <% end %>
-</table>
+                data: { confirm: (habit.days > 0 ? 'Are you sure? You have ' + habit.days.to_s + 
+                                  (habit.days == 1 ? ' day' : ' days') + ' left for this habit!' 
+                                : 'Are you sure you want to delete this accomplishment?')} %></li>
+      </ul>
+    </div>
+<% end %>
 </div>
