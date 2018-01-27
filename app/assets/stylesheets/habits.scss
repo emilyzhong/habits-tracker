@@ -20,7 +20,7 @@ a {
     padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     position: absolute;
-    width: 250px;
+    width: 300px;
     left: 50%;
     top: 20vh;
     transform: translateX(-50%) translateY(18px);
@@ -42,6 +42,7 @@ li {
     display: inline-block;
     margin-right: 5px;
     transition: 0.2s all;
+    font-size: 0.8em;
 }
 
 ul a {
@@ -59,22 +60,22 @@ ul {
 }
 
 .habit_name {
-    margin-bottom: 2px;
+    font-weight: 500;
     a {
         font-size: 1.2em;
     }
 }
 
 #title {
+    display: block;
     font-size: 2em;
     font-weight: 700;
-}
-
-#new_habit, .info, .days_left {
-    font-size: 0.9em;
-}
-
-#new_habit {
     margin-bottom: 5px;
+} 
+
+#new_habit { 
+    display: block;
+    margin: 0px 0 7px;
+    font-size: 0.9em;
 }
 
