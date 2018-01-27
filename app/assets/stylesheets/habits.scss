@@ -23,8 +23,14 @@ a {
     width: 250px;
     left: 50%;
     top: 20vh;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(18px);
     border-top: 5px solid $emphasis-color;
+    transition: 0.4s all;
+    transition-delay: 0.05s;
+}
+
+#outer:hover {
+    transform: translateX(-50%) translateY(0);
 }
 
 .habit {
