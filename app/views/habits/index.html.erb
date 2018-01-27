@@ -1,0 +1,24 @@
+<div>
+Your Habits
+<br> 
+<%= link_to 'New Habit', new_habit_path %>
+<table>
+  <tr>
+    <th>Habits</th>
+    <th>Days Left</th>
+  </tr>
+ 
+  <% @habits.each do |habit| %>
+    <tr>
+      <td><%= link_to habit.title, habit_path(habit) %></td>
+      <td><%= habit.days != 0 ? habit.days.to_s + ' days left!' : 'Completed! Good job!' %></td>
+      <td><%= link_to "I did it!", habit_path(habit), :method=> :put%></td>
+      <td><%= link_to 'Destroy', habit_path(habit), 
+                method: :delete,
+                data: { confirm: (habit.days > 0 ? 
+                                  'Are you sure? You have ' + habit.days.to_s + ' days left for this habit!' 
+                                : 'Are you sure you want to delete this accomplishment?')} %></td> 
+    </tr>
+  <% end %>
+</table>
+</div>

@@ -1,0 +1,24 @@
+// Place all the styles related to the Habits controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    background: #fafafa;
+    color: #3d3d3d;
+    text-align: center;
+    position: relative;
+}
+
+div {
+    padding: 20px;
+    background: white;
+    position: relative;
+}
+
+table {
+    margin: 20px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
