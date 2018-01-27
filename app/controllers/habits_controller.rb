@@ -10,24 +10,21 @@ class HabitsController < ApplicationController
     def new
     end
 
-    def edit
-    end
-
     def create
         @habit = Habit.new(habit_params)
 
         @habit.save
-        redirect_to @habit
+        redirect_to action: "index"
     end
 
     def update
-        @habit = Habit.find(params[:id]);
+        @habit = Habit.find(params[:id])
 
         if @habit.days <= 1
             @habit.update(days: 0);
         else
             @habit.update(days: (@habit.days - 1))
-            redirect_to @habit
+            redirect_to @habit and return
         end
     end
 

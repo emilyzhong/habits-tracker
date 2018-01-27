@@ -6,12 +6,17 @@
 <% @habits.each do |habit| %>
     <div class="habit">
       <div class="habit_name"><%= link_to habit.title, habit_path(habit) %>
-      <span class="days_left"><%= habit.days != 0 ? 'You have ' + habit.days.to_s + 
-                                             (habit.days != 1 ? ' days left' : ' day left') : 'completed' %></span>
+      <div class="days_left"><%= habit.days != 0 ? 'You have ' + habit.days.to_s + 
+                                             (habit.days != 1 ? ' days left' : ' day left') : 'completed' %></div>
       </div>
       <ul class="info">
-        <li><%= link_to "I did it!", habit_path(habit), :method=> :put%></li>
-        <li><%= link_to 'Destroy', habit_path(habit), 
+        <% if habit.days > 0 && Time.now - habit.updated_at > 1.day || habit.updated_at == habit.created_at %>
+          <li><%= link_to "Log for today", habit_path(habit), :method=> :put%></li>
+        <% else %>
+            <li>You've already logged today! </li>
+        <% end %>
+ 
+        <li><%= link_to 'Delete', habit_path(habit), 
                 method: :delete,
                 data: { confirm: (habit.days > 0 ? 'Are you sure? You have ' + habit.days.to_s + 
                                   (habit.days == 1 ? ' day' : ' days') + ' left for this habit!' 

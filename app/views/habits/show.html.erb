@@ -6,8 +6,15 @@
 <%= @habit.days > 0 ? @habit.days.to_s + 
                         (@habit.days == 1 ? ' day' : ' days') + ' left' : 'COMPLETED' %>
 <ul style="margin-top: 20px; margin-bottom: 5px;">
-    <li><%= link_to_if @habit.days > 0, "Log for today", habit_path(@habit), :method=> :put%></li>
-    <li><%= link_to 'Destroy', habit_path(@habit), 
+
+    <% if Time.now - @habit.updated_at < 1.minute %>
+        <li>One day down!</li>
+    <% elsif @habit.days > 0 && Time.now - @habit.updated_at > 1.day || @habit.updated_at == @habit.created_at %>
+        <li><%= link_to "Log for today", habit_path(@habit), :method=> :put%></li>
+    <% else %>
+        <li>You've already logged today! </li>
+    <% end %>
+    <li><%= link_to 'Delete', habit_path(@habit), 
                 method: :delete,
                 data: { confirm: (@habit.days > 0 ? 
                                   'Are you sure? You have ' + @habit.days.to_s + 
